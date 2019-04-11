@@ -8,10 +8,17 @@ namespace MTDClasses
 {
     public class BoneYard
     {
-        private List<Domino> boneYard = new List<Domino>();
+        private List<Domino> boneYard;
+
+        public BoneYard()
+        {
+            boneYard = new List<Domino>();
+        }
         
         public BoneYard(int maxDots)
         {
+            boneYard = new List<Domino>();
+
             for (int i = 0; i <= maxDots; i++)
             {
                 for (int j = 0; j <= maxDots; j++)
@@ -61,21 +68,35 @@ namespace MTDClasses
         }
 
         // Draw domino from top of pile, add it to player hand, remove from boneYard
-       /* public Domino Draw()
+        public Domino Draw()
         {
-
-        } */
+            Domino d = boneYard[0];
+            boneYard.Remove(boneYard[0]);
+            return d;
+        }
 
         public Domino this[int index]
         {
             get
             {
-                return (Domino)boneYard[index];
+                return boneYard[index];
+            }
+            set
+            {
+                boneYard[index] = value;
             }
         }
 
-       /* public override string ToString()
+        public override string ToString()
         {
-        } */
+            string str = "";
+
+            foreach(Domino d in boneYard)
+            {
+                str = str + d.ToString() + "\n";
+            }
+
+            return str;
+        }
     }
 }

@@ -16,9 +16,10 @@ namespace MTDClasses
         ///// <summary>
         ///// Creates an empty hand
         ///// </summary>
-        //public Hand()
-        //{
-        //}
+        public Hand()
+        {
+            handList = new List<Domino>();
+        }
 
         ///// <summary>
         ///// Creates a hand of dominos from the boneyard.
@@ -29,9 +30,12 @@ namespace MTDClasses
         ///// </summary>
         ///// <param name="by"></param>
         ///// <param name="numPlayers"></param>
-        //public Hand(BoneYard by, int numPlayers)
-        //{
-        //}
+        public Hand(BoneYard by, int numPlayers)
+        {
+            handList = new List<Domino>();
+
+            
+        }
 
         //public void Add(Domino d)
         //{

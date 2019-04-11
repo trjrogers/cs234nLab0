@@ -10,6 +10,9 @@ namespace MTDClasses
     /// </summary>
     public abstract class Train
     {
+        // Dominos list
+        List<Domino> dominos = new List<Domino>();
+
 
         /*
         public Train()
