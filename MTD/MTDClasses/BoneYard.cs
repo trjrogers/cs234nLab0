@@ -34,14 +34,14 @@ namespace MTDClasses
         // Current index equal to random index, overwrite random index value with the store temp value
         public void Shuffle()
         {
-            for (int i = 0; i <= boneYard.Count; i++)
+            Random random = new Random();
+            for (int i = 0; i < boneYard.Count; i++)
             {
-                Random random = new Random();
                 Domino temp = boneYard[i];
 
                 int r = random.Next(0, boneYard.Count);
-                boneYard[r] = boneYard[i];
-                boneYard[i] = temp;
+                boneYard[i] = boneYard[r];
+                boneYard[r] = temp;
             }
         }
 
@@ -75,15 +75,12 @@ namespace MTDClasses
             return d;
         }
 
+        // Gets domino in boneyard at specified index
         public Domino this[int index]
         {
             get
             {
                 return boneYard[index];
-            }
-            set
-            {
-                boneYard[index] = value;
             }
         }
 
@@ -91,6 +88,7 @@ namespace MTDClasses
         {
             string str = "";
 
+            // Each domino in the boneyard is converted to a string, with each item seperated by a new line
             foreach(Domino d in boneYard)
             {
                 str = str + d.ToString() + "\n";
